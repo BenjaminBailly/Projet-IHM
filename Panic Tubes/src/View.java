@@ -34,7 +34,6 @@ public class View
 	
 	public void set_grid_parameters(int length, int width)
 	{
-		model.set_grid_size(length, width);
 		grid_layout = new GridLayout (length, width);
 		this.grid_panel.setLayout(grid_layout);	
 		
@@ -75,6 +74,7 @@ public class View
 	public void enabled_button(int button_number)
 	{
 		grid_buttons.get(button_number).setEnabled(false);
+		grid_buttons.get(button_number).setBackground(Color.BLACK);
 	}
 	
     public static void main(String[] args) 

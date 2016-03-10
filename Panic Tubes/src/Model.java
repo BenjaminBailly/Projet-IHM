@@ -22,15 +22,36 @@ public class Model
 	{
 		this.grid_of_case = new Case[length][width];
 		this.grid_of_case_presence = new boolean[length][width];
+		init_grid_of_case(length,width);
+		init_grid_of_case_presence(length,width);
+		
 	}
 	
-	public void this_case_become_an_obstacle(int length, int width)
+	public void init_grid_of_case(int length, int width)
 	{
-		grid_of_case[length][width].becomes_an_obstacle();
+		for (int i = 0; i < length; i++)
+		{
+			for( int j = 0; j < width; j++)
+			{
+				grid_of_case[i][j]= new Case();
+			}
+		}
+	}
+	
+	public void init_grid_of_case_presence(int length, int width)
+	{
+		for (int i = 0; i < length; i++)
+		{
+			for( int j = 0; j < width; j++)
+			{
+				grid_of_case_presence[i][j]= true;
+			}
+		}
 	}
 	
 	public void create_border(int length,int width)
 	{
+		
 		for(int i = 0; i < width;i++)
 		{
 			grid_of_case[0][i].becomes_an_obstacle();
@@ -42,5 +63,10 @@ public class Model
 			grid_of_case[i][0].becomes_an_obstacle();
 			grid_of_case[i][width - 1].becomes_an_obstacle();
 		}
+	}
+	
+	public Case get_grid_of_case(int x, int y)
+	{
+		return grid_of_case[x][y];
 	}
 }

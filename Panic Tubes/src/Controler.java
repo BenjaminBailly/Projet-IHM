@@ -22,25 +22,23 @@ public class Controler
 	{
 		this.length = length;
 		this.width = width;
+		model.set_grid_size(length, width);
 		model.create_border(length, width);
-
-		for(int i = 0; i < width;i++)
-		{
-			view.enabled_button(conversion_2D_to_1D(0,i));
-			view.enabled_button(conversion_2D_to_1D(length - 1,0));
-		}
-		
-		for(int i = 0; i < length;i++)
-		{
-			view.enabled_button(conversion_2D_to_1D(i,0));
-			view.enabled_button(conversion_2D_to_1D(i,width - 1));
-		}
-		
+		update_grid();
 	}
 	
 	public void update_grid()
 	{
-		
+		for(int i = 0; i < length; i++)
+		{
+			for( int j = 0; j < width; j++)
+			{
+				if(this.model.get_grid_of_case(i, j).is_this_case_an_obstacle())
+				{
+					view.enabled_button(conversion_2D_to_1D(i,j));
+				}
+			}
+		}
 		
 		
 	}
@@ -59,16 +57,16 @@ public class Controler
 
 	public int conversion_1D_to_2D_x(int size)
 	{
-		return size / length;
+		return size / width;
 	}
 	
 	public int conversion_1D_to_2D_y(int size)
 	{
-		return size % length;
+		return size % width;
 	}
 	
 	public int conversion_2D_to_1D(int x,int y)
 	{
-		return x*length + y;
+		return x*width + y;
 	}
 }
