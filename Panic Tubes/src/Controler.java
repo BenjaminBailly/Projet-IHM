@@ -24,6 +24,8 @@ public class Controler
 		this.width = width;
 		model.set_grid_size(length, width);
 		model.create_border(length, width);
+		model.create_entrance(length);
+		model.create_exit(length,width);
 		update_grid();
 	}
 	
@@ -36,6 +38,16 @@ public class Controler
 				if(this.model.get_grid_of_case(i, j).is_this_case_an_obstacle())
 				{
 					view.enabled_button(conversion_2D_to_1D(i,j));
+				}
+				
+				if(this.model.get_grid_of_case(i, j).is_this_case_the_entrance())
+				{
+					view.enabled_button_entrance(conversion_2D_to_1D(i,j));
+				}
+				
+				if(this.model.get_grid_of_case(i, j).is_this_case_the_exit())
+				{
+					view.enabled_button_exit(conversion_2D_to_1D(i,j));
 				}
 			}
 		}

@@ -77,6 +77,18 @@ public class View
 		grid_buttons.get(button_number).setBackground(Color.BLACK);
 	}
 	
+	public void enabled_button_entrance(int button_number)
+	{
+		grid_buttons.get(button_number).setEnabled(false);
+		grid_buttons.get(button_number).setBackground(Color.GREEN);
+	}
+	
+	public void enabled_button_exit(int button_number)
+	{
+		grid_buttons.get(button_number).setEnabled(false);
+		grid_buttons.get(button_number).setBackground(Color.RED);
+	}
+	
     public static void main(String[] args) 
     {
        	View view = new View();
@@ -87,7 +99,7 @@ public class View
     	controler.link_controler(view, model);
     	model.link_model(view, controler);
     	
-    	view.set_grid_parameters(10,20);
+    	view.set_grid_parameters(8,7);
     	view.set_frame_parameter();
     	
     }
