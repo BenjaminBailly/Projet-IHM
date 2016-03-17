@@ -72,13 +72,16 @@ public class Model
 	
 	public void create_entrance(int length)
 	{
-		int random_int = 1 + (int)(Math.random() * (((length-1) - 1) + 1));
+		int random_int = 1 + (int)(Math.random() * (length-2));
 		grid_of_case[random_int][0].becomes_the_entrance();
 	}
 	
 	public void create_exit(int length,int width)
 	{
-		int random_int = 1 + (int)(Math.random() * (((length-1) - 1) + 1));
+		int random_int = 1 + (int)(Math.random() * (length-2));
 		grid_of_case[random_int][width-1].becomes_the_exit();
 	}
+
+	
+	
 }
